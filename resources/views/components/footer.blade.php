@@ -1,5 +1,5 @@
 <footer>
     <h2>
-        Footer
+        For gamers By gamers
     </h2>
 </footer>
