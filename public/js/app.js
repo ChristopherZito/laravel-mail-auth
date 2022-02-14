@@ -1996,8 +1996,6 @@ __webpack_require__.r(__webpack_exports__);
         if (del.id == id) {
           return x;
         }
-
-        return -1;
       }
     }
   }

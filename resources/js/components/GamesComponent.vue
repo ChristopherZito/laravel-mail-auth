@@ -54,8 +54,6 @@
                     if(del.id == id){
                         return x;
                     }
-                    
-                    return -1;
                 }
             }
         },
