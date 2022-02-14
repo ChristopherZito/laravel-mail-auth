@@ -17,4 +17,13 @@ class SubController extends Controller
 
         return json_encode($games);
     }
+
+    public function deleteGames($id){
+
+        $game = Videogame::findOrFail($id);
+
+        $game -> delete();
+
+        return json_encode($game);
+    }
 }

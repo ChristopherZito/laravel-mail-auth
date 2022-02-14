@@ -18,3 +18,5 @@ Route::post('/register', 'Auth\RegisterController@register') -> name('register')
 Route::get('logout', 'Auth\LoginController@logout') -> name('logout');
 //axios
 Route::get('/axios/videogames', 'SubController@getGames')-> name('get_videogames');
+//delete
+Route::get('/axios/videogame/delete/{id}', 'SubController@deleteGames')-> name('delete_videogames');

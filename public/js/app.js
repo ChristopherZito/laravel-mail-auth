@@ -1960,6 +1960,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -1970,11 +1972,34 @@ __webpack_require__.r(__webpack_exports__);
     var _this = this;
 
     axios.get('/axios/videogames').then(function (dbr) {
-      console.log("dati", dbr.data);
+      // console.log("dati",dbr.data );
       _this.games = dbr.data;
     })["catch"](function (error) {
       return console.error(error);
     });
+  },
+  methods: {
+    deleteGames: function deleteGames(id) {
+      console.log(id);
+      var self = this;
+      axios.get("/axios/videogame/delete/".concat(id)).then(function (del) {
+        var ind = self.getGamesFromId(id);
+        self.games.splice(ind, 1);
+      })["catch"](function (e) {
+        return console.error(e);
+      });
+    },
+    getGamesFromId: function getGamesFromId(id) {
+      for (var x = 0; x < this.games.length; x++) {
+        var del = this.games[x];
+
+        if (del.id == id) {
+          return x;
+        }
+
+        return -1;
+      }
+    }
   }
 });
 
@@ -37631,8 +37656,29 @@ var render = function () {
           ]),
           _vm._v(" "),
           _c("span", [
-            _vm._v("\n             " + _vm._s(game.rating) + "\n        "),
+            _vm._v(
+              "\n             " +
+                _vm._s(game.rating) +
+                " [ID = " +
+                _vm._s(game.id) +
+                "]\n        "
+            ),
           ]),
+          _vm._v(" "),
+          _c("br"),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-danger",
+              on: {
+                click: function ($event) {
+                  return _vm.deleteGames(game.id)
+                },
+              },
+            },
+            [_vm._v("Delete")]
+          ),
           _vm._v(" "),
           _c("hr", { staticClass: "bg-light" }),
         ])
