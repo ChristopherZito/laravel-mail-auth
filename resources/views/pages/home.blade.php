@@ -1,4 +1,4 @@
 @extends('layouts.main-layouts')
 @section('content')
-    HOME
+    <games-component></games-component>
 @endsection
