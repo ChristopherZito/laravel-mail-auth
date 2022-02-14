@@ -49810,7 +49810,7 @@ var files = __webpack_require__("./resources/js sync recursive \\.vue$/");
 files.keys().map(function (key) {
   return Vue.component(key.split('/').pop().split('.')[0], files(key)["default"]);
 });
-window.addEventListener('DOMContentLoaded', function (event) {
+document.addEventListener("DOMContentLoaded", function () {
   var app = new Vue({
     el: '#app'
   });
